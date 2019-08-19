@@ -15,6 +15,7 @@ Public Class Client
         options.Add("format", "png")
         options.Add("cacheLimit", "0")
         options.Add("delay", "200")
+        options.Add("zoom", "100")
 
         Dim sm As ScreenshotMachine = New ScreenshotMachine(customerKey, secretPhrase)
         Dim apiUrl As String = sm.GenerateApiUrl(options)
