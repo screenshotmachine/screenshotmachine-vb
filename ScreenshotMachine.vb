@@ -6,8 +6,8 @@ Public Class ScreenshotMachine
 
     Private customerKey As String
     Private secretPhrase As String
-    Private screenshotApiBaseUrl As String = "http://api.screenshotmachine.com/?"
-    Private pdfApiBaseUrl As String = "http://pdfapi.screenshotmachine.com/?"
+    Private screenshotApiBaseUrl As String = "https://api.screenshotmachine.com/?"
+    Private pdfApiBaseUrl As String = "https://pdfapi.screenshotmachine.com/?"
 
     Public Sub New(ByVal customerKey As String, ByVal secretPhrase As String)
         Me.customerKey = customerKey
