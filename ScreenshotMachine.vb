@@ -6,15 +6,24 @@ Public Class ScreenshotMachine
 
     Private customerKey As String
     Private secretPhrase As String
-    Private apiBaseUrl As String = "http://api.screenshotmachine.com/?"
+    Private screenshotApiBaseUrl As String = "http://api.screenshotmachine.com/?"
+    Private pdfApiBaseUrl As String = "http://pdfapi.screenshotmachine.com/?"
 
     Public Sub New(ByVal customerKey As String, ByVal secretPhrase As String)
         Me.customerKey = customerKey
         Me.secretPhrase = secretPhrase
     End Sub
 
-    Public Function GenerateApiUrl(ByVal options As Dictionary(Of String, String)) As String
-        Dim apiUrl As New StringBuilder(apiBaseUrl)
+    Public Function GeneratePdfApiUrl(ByVal options As Dictionary(Of String, String)) As String
+        Return GenerateUrl(pdfApiBaseUrl, options)
+    End Function
+
+    Public Function GenerateScreenshotApiUrl(ByVal options As Dictionary(Of String, String)) As String
+        Return GenerateUrl(screenshotApiBaseUrl, options)
+    End Function
+
+    Private Function GenerateUrl(ByVal baseUrl As String, ByVal options As Dictionary(Of String, String)) As String
+        Dim apiUrl As New StringBuilder(baseUrl)
         apiUrl.Append("key=").Append(customerKey)
         If Not String.IsNullOrEmpty(secretPhrase) Then
             apiUrl.Append("&hash=").Append(CalculateHash(options.Item("url") + secretPhrase))

@@ -9,8 +9,8 @@ Public Class Client
         Dim options As New Dictionary(Of String, String)
         REM mandatory parameter
         options.Add("url", "https://www.google.com")
-        REM  all next parameters are optional, see our API guide for more details
-        options.Add("dimension", "1366x768") REM Or "1366xfull" For full length screenshot
+        REM  all next parameters are optional, see our website screenshot API guide for more details
+        options.Add("dimension", "1366x768") REM or "1366xfull" for full length screenshot
         options.Add("device", "desktop")
         options.Add("format", "png")
         options.Add("cacheLimit", "0")
@@ -18,8 +18,7 @@ Public Class Client
         options.Add("zoom", "100")
 
         Dim sm As ScreenshotMachine = New ScreenshotMachine(customerKey, secretPhrase)
-        Dim apiUrl As String = sm.GenerateApiUrl(options)
-
+        Dim apiUrl As String = sm.GenerateScreenshotApiUrl(options)
         REM use final apiUrl where needed
         Console.WriteLine(apiUrl)
 
