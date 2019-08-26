@@ -55,11 +55,6 @@ Public Class Client
         Dim apiUrl As String = sm.GenerateScreenshotApiUrl(options)
         REM use final apiUrl where needed
         Console.WriteLine(apiUrl)
-
-        Dim client As New WebClient()
-        Dim output As String = "output.png"
-        client.DownloadFile(apiUrl, output)
-        Console.WriteLine("Screenshot saved as " + output)
     End Sub
 
 End Class
